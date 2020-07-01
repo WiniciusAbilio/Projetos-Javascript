@@ -1,6 +1,8 @@
 const listElement = document.querySelector('#app ul');
+
 const inputElement = document.getElementById('element');
-const inputQntd = document.getElementById('qntd')
+const inputQntd = document.getElementById('qntd');
+
 const buttonElement = document.getElementById('add');
 const buttonQntd = document.getElementById('get');
 
@@ -10,16 +12,16 @@ function renderTodos() {
     listElement.innerHTML = '';
 
     for (todo of todos) {
-        let todoElement = document.createElement('li');
-        let todoText = document.createTextNode(todo);
+        const todoElement = document.createElement('li');
+        const todoText = document.createTextNode(todo);
 
-        let linkElement = document.createElement('a');
+        const linkElement = document.createElement('a');
         linkElement.setAttribute('href', '#');
 
-        let index = todos.indexOf(todo);
-        linkElement.setAttribute('onclick', 'deleteTodo(' + index + ')');
+        const index = todos.indexOf(todo);
+        linkElement.setAttribute('onclick', `deleteTodo(${index})`);
 
-        let linkText = document.createTextNode(' Excluir');
+        const linkText = document.createTextNode(' Excluir');
 
         linkElement.appendChild(linkText);
 
