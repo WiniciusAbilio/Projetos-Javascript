@@ -1,7 +1,7 @@
 /* function abbrevName(name) {
-    var abbrev = name[0].toUpperCase();
-    var j;
-    for (var i = 0; i < name.length; i++) {
+    let abbrev = name[0].toUpperCase();
+    let j;
+    for (let i = 0; i < name.length; i++) {
         if (name[i] == " ") {
             j = i + 1;
             abbrev += `.${name[j].toUpperCase()}`;
@@ -13,8 +13,8 @@ console.log(abbrevName("Jorjin jjj"))
 
 
 function createPhoneNumber(numbers) {
-    var format = "(xxx) xxx-xxxx";
-    for (var i = 0; i < numbers.length; i++) {
+    let format = "(xxx) xxx-xxxx";
+    for (let i = 0; i < numbers.length; i++) {
         format = format.replace('x', numbers[i]);
     }
     return format;
@@ -23,10 +23,10 @@ console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
 
 
 function getMiddle(s) {
-    var str = "";
-    var j = 0;
-    var tamanho = s.length;
-    for (var i = 0; i < tamanho; i++) {
+    let str = "";
+    let j = 0;
+    let tamanho = s.length;
+    for (let i = 0; i < tamanho; i++) {
         if (tamanho % 2 == 0) {
             if (i == tamanho / 2) {
                 j = i - 1;
@@ -46,13 +46,13 @@ console.log(getMiddle("middle"));
 
 
 function humanReadable(seconds) {
-    var hoursReadable = parseInt(seconds / 3600);
-    var minutesReadable = parseInt((seconds / 60) % 60);
-    var secondsReadable = parseInt(seconds % 60);
-    var number;
-    var partHours;
-    var partMinutes;
-    var partSeconds;
+    let hoursReadable = parseInt(seconds / 3600);
+    let minutesReadable = parseInt((seconds / 60) % 60);
+    let secondsReadable = parseInt(seconds % 60);
+    let number;
+    let partHours;
+    let partMinutes;
+    let partSeconds;
     if (hoursReadable < 10) {
         partHours = `0${hoursReadable}`;
     } else {
@@ -74,8 +74,8 @@ function humanReadable(seconds) {
 console.log(humanReadable(5));
 
 function wordSpaced(word){
-    var newWord = "";
-    for (var i = 0; i < word.length; i++) {
+    let newWord = "";
+    for (let i = 0; i < word.length; i++) {
         newWord += `${word[i]} `;
     }
     return newWord;
@@ -141,7 +141,7 @@ console.log(likes(['Jacob', 'Alex']));
 console.log(likes(['Max', 'John', 'Mark']));
 console.log(likes(['Alex', 'Jacob', 'Mark', 'Max']));
 
-var uniqueInOrder = function (iterable) {
+let uniqueInOrder = function (iterable) {
     let uniq = [];
     for (let i = 0; i < iterable.length; i++) {
         if (iterable[i] != iterable[i + 1]) {
@@ -223,11 +223,11 @@ console.log(numbersExpandedForm(31311));
 
 function solution(roman) {
     let sum = 0;
-    var numbers = {
+    let numbers = {
         'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000,
         'IV': 4, 'IX': 9, 'XL': 40, 'XC': 90, 'CD': 400, 'CM': 900
     };
-    for (var i = 0; i < roman.length; i++) {
+    for (let i = 0; i < roman.length; i++) {
         let num = numbers[roman[i]];
         let nextNum = numbers[roman[i + 1]] | 0;
         if (nextNum && nextNum > num) {
@@ -242,4 +242,36 @@ function solution(roman) {
 console.log(solution('II'));
 console.log(solution('XI'));
 console.log(solution('IV'));
+
+function sumDigits(number) {
+    let sum = 0;
+    let numbers = number.toString().replace('-','');
+    for (let i = 0; i < numbers.length; i++) {
+        sum += parseInt(numbers[i]);
+    }
+    return sum;
+}
+
+console.log(sumDigits(12));
+console.log(sumDigits(-32));
+console.log(sumDigits(5));
+
+
+function validPhoneNumber(phoneNumber) {
+    let valid = false;
+    let numbers = phoneNumber.replace('(','').replace(')','').replace('-','').replace(' ','');
+    let format = "(xxx) xxx-xxxx";
+    for (let i = 0; i < numbers.length; i++) {
+        format = format.replace('x', parseInt(numbers[i])).toString();
+        if (phoneNumber === format) {
+            valid = true;
+        }
+
+    }
+    return valid;
+}
+
+console.log(validPhoneNumber("(123) 456-7890"))
+console.log(validPhoneNumber("(1111)555 2345"))
 */
+
